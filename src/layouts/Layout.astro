@@ -1,0 +1,87 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'AKB48劇場公演の行き方・チケットの取り方・楽しみ方を初心者向けに解説するガイドブログ',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | 劇場への扉</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --color-primary: #c0396b;
+        --color-bg: #fff8fb;
+        --color-text: #1a1a1a;
+        --color-muted: #666;
+        --max-width: 780px;
+        --font-sans: 'Helvetica Neue', 'Hiragino Sans', 'Meiryo', sans-serif;
+      }
+      body {
+        font-family: var(--font-sans);
+        background: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.75;
+      }
+      a { color: var(--color-primary); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Header */
+      .site-header {
+        background: #fff;
+        border-bottom: 2px solid var(--color-primary);
+        padding: 0.75rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .site-header a { color: var(--color-text); font-weight: 700; font-size: 1.1rem; }
+      .site-header a:hover { text-decoration: none; color: var(--color-primary); }
+
+      /* Main */
+      main {
+        max-width: var(--max-width);
+        margin: 2rem auto;
+        padding: 0 1.25rem;
+      }
+
+      /* Footer */
+      .site-footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        color: var(--color-muted);
+        font-size: 0.85rem;
+        border-top: 1px solid #eee;
+        margin-top: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/">🎭 劇場への扉</a>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 劇場への扉 — AKB48劇場公演ガイド</p>
+      <p style="margin-top:0.5rem;font-size:0.8rem;">当サイトはアフィリエイト広告を利用しています</p>
+    </footer>
+  </body>
+</html>
