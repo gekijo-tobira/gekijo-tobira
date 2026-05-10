@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const articles = [
+  {
+    title: 'AKB48劇場チケットの取り方【完全ガイド2025】',
+    slug: 'how-to-get-tickets',
+    date: '2025-05-10',
+    excerpt: '「チケットってどうやって取るの?」という初心者の疑問を徹底解説。抽選方法からキャンセル待ちのコツまで全部まとめました。',
+    tag: '入門',
+  },
+];
+---
+
+<Layout title="トップ" description="AKB48劇場公演の行き方・チケットの取り方を初心者向けに解説">
+  <!-- Hero -->
+  <section style="text-align:center; padding: 3rem 0 2rem;">
+    <h1 style="font-size:2rem; color:var(--color-primary); margin-bottom:0.75rem;">🎭 劇場への扉</h1>
+    <p style="color:var(--color-muted); font-size:1.05rem; max-width:520px; margin:0 auto;">
+      AKB48劇場公演が気になっているあなたへ。<br>
+      チケットの取り方から当日の流れまで、全部わかる入門ガイド。
+    </p>
+  </section>
+
+  <!-- Articles -->
+  <section>
+    <h2 style="font-size:1.2rem; font-weight:700; border-left:4px solid var(--color-primary); padding-left:0.75rem; margin-bottom:1.5rem;">
+      新着記事
+    </h2>
+    <div style="display:flex; flex-direction:column; gap:1.25rem;">
+      {articles.map((a) => (
+        <article style="background:#fff; border-radius:10px; padding:1.25rem 1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <span style="font-size:0.75rem; background:#fce4ee; color:var(--color-primary); padding:0.2rem 0.6rem; border-radius:999px; font-weight:600;">
+            {a.tag}
+          </span>
+          <h3 style="margin-top:0.6rem; font-size:1.05rem; line-height:1.5;">
+            <a href={`/articles/${a.slug}`}>{a.title}</a>
+          </h3>
+          <p style="margin-top:0.4rem; color:var(--color-muted); font-size:0.9rem;">{a.excerpt}</p>
+          <time style="display:block; margin-top:0.5rem; font-size:0.8rem; color:#aaa;" datetime={a.date}>{a.date}</time>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="margin-top:3rem; background:#fff0f5; border-radius:12px; padding:2rem; text-align:center;">
+    <h2 style="font-size:1.1rem; color:var(--color-primary); margin-bottom:0.75rem;">まずここから読んでみて</h2>
+    <p style="color:var(--color-muted); margin-bottom:1.25rem;">チケットの取り方を知りたい初心者の方は、こちらの記事がおすすめです。</p>
+    <a href="/articles/how-to-get-tickets"
+       style="display:inline-block; background:var(--color-primary); color:#fff; padding:0.75rem 2rem; border-radius:999px; font-weight:700; font-size:0.95rem;">
+      チケットの取り方を読む →
+    </a>
+  </section>
+</Layout>
