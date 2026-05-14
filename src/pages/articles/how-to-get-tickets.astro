@@ -28,40 +28,22 @@ const pubDate = new Date('2026-05-11');
     <h3>劇場公演チケット（¥4,300）※卒業セレモニーや特別公演は別料金</h3>
     <p>劇場内で公演を観覧するチケットです。申し込み区分は以下のとおりです。</p>
 
-    <table>
-      <thead>
-        <tr>
-          <th>種類</th>
-          <th>概要</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>映像倉庫会員枠</td>
-          <td>映像倉庫の会員向け枠</td>
-        </tr>
-        <tr>
-          <td>柱の会 会員枠</td>
-          <td>柱の会の会員向け枠</td>
-        </tr>
-        <tr>
-          <td>一般枠</td>
-          <td>誰でも応募できる基本枠</td>
-        </tr>
-        <tr>
-          <td>ファミリー・カップル枠</td>
-          <td>家族・カップルでの参加向け枠</td>
-        </tr>
-        <tr>
-          <td>女性・小中学生枠</td>
-          <td>女性および小中学生向け枠</td>
-        </tr>
-        <tr>
-          <td>100発98中権利</td>
-          <td>スクラッチくじやガラポンチャレンジ、各会員特典などで申込権利を獲得した方向けの枠</td>
-        </tr>
-      </tbody>
-    </table>
+    <div style="display:grid; grid-template-columns: 1fr 2fr; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; margin: 1rem 0;">
+      <div style="background:#fce4ee; color:#c0396b; font-weight:700; padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb;">種類</div>
+      <div style="background:#fce4ee; color:#c0396b; font-weight:700; padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; border-left:1px solid #e5e7eb;">概要</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; background:#fff;">映像倉庫会員枠</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; border-left:1px solid #e5e7eb; background:#fff;">映像倉庫の会員向け枠</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; background:#fff8fb;">柱の会 会員枠</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; border-left:1px solid #e5e7eb; background:#fff8fb;">柱の会の会員向け枠</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; background:#fff;">一般枠</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; border-left:1px solid #e5e7eb; background:#fff;">誰でも応募できる基本枠</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; background:#fff8fb;">ファミリー・カップル枠</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; border-left:1px solid #e5e7eb; background:#fff8fb;">家族・カップルでの参加向け枠</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; background:#fff;">女性・小中学生枠</div>
+      <div style="padding:0.6rem 1rem; border-bottom:1px solid #e5e7eb; border-left:1px solid #e5e7eb; background:#fff;">女性および小中学生向け枠</div>
+      <div style="padding:0.6rem 1rem; background:#fff8fb;">100発98中権利</div>
+      <div style="padding:0.6rem 1rem; border-left:1px solid #e5e7eb; background:#fff8fb;">スクラッチくじやガラポンチャレンジ、各会員特典などで申込権利を獲得した方向けの枠</div>
+    </div>
 
     <p>
       初めての方は、まず一般枠から申し込んでみましょう。会費無料で始められるので、気軽に挑戦できます。女性・小中学生の方は女性・小中学生枠にも応募することができます。
@@ -98,7 +80,6 @@ const pubDate = new Date('2026-05-11');
 
     <h2>当選するためのヒント</h2>
     <ul>
-      <li>複数の枠に申し込む：一般枠と女性枠など、申込可能な枠を複数使うと当選チャンスが上がります</li>
       <li>平日公演を狙う：土日より平日の方が比較的倍率が下がりやすい傾向があります</li>
       <li>会員に登録する：継続的に通いたいなら、会員枠があると長期的に有利です</li>
     </ul>
