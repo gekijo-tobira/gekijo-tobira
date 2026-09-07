@@ -1,0 +1,669 @@
+---
+import BaseLayout from '../../layouts/Layout.astro';
+
+const title = "【AKB48劇場】当選後の流れは？入場までの手順を全部解説";
+const description = "AKB48劇場に当選した後の流れを解説。支払いのタイミング、電子チケットの受け取り、本人確認書類、ロッカー代、抽選入場会まで初めてでも迷わない手順をまとめました。";
+// 公開日・更新日（YYYY-MM-DD）。index.astro の一覧と揃えること
+const pubDateISO = '2026-09-06';
+const updatedISO = '2026-09-06';
+const pubDate = new Date(pubDateISO);
+
+// A8.net 楽天アフィリエイト / Anker Nano Power Bank（5000mAh 端子一体型）
+// href と計測用imgはA8が発行した値をそのまま使用（改変すると成果が計測されない）。
+// 表示テキストのみ自前。空にすれば広告ブロックごと非表示になる。
+const a8Href = "https://rpx.a8.net/svt/ejp?a8mat=4BC4QT+6C11GY+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00rr094.2bo1171a.g00rr094.2bo12088%2Fa26090654628_4BC4QT_6C11GY_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Fanker%252Fa1645%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Fanker%252Fi%252F10001561%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283";
+const a8Pixel = `<img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=4BC4QT+6C11GY+2HOM+BWGDT" alt="">`;
+---
+
+<BaseLayout title={title} description={description} pubDate={pubDateISO} updatedDate={updatedISO} hasAd={true}>
+  <article class="prose">
+    <h1>【AKB48劇場】当選後の流れは？入場までの手順を全部解説</h1>
+    <p class="post-date">{pubDate.toLocaleDateString('ja-JP')}</p>
+
+    <p>
+      AKB48劇場に行ってみたいと思いながら、応募のボタンを押す手が止まってしまう方は少なくありません。理由は倍率ではなく、「もし当たったとして、そのあと自分にちゃんと対応できるだろうか」という不安のほうだったりします。支払いはいつ発生するのか、チケットはどこに届くのか、当日は何を持っていけばいいのか。当選した先が想像できないと、行きたい公演があっても一歩を踏み出しにくいものです。
+    </p>
+    <p>
+      たしかに、当日の手続きでつまずくと入場できません。本人確認ができなければ断られ、しかも返金はありません。裏を返せば、流れさえ先に知っておけば怖がる理由はなくなります。この記事では、当選メールが届いた瞬間から劇場の座席に座るまでを、順番どおりにたどります。
+    </p>
+
+    <div class="cap-box">
+      <div class="cap-title">この記事でわかること</div>
+      <div class="cap-body">
+        <ul>
+          <li>支払いが発生するタイミング</li>
+          <li>電子チケットの受け取り場所</li>
+          <li>入場に必要な本人確認書類</li>
+          <li>当日に必要な現金の額</li>
+          <li>抽選入場会のしくみ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="balloon-row">
+      <div class="balloon-icon">🔰</div>
+      <div class="balloon">当たったのは嬉しいけど、この後どうすればいいのか全然わかりません…</div>
+    </div>
+    <div class="balloon-row">
+      <div class="balloon-icon alt">🎭</div>
+      <div class="balloon alt">大丈夫です。やることは決まっているので、上から順番になぞっていきましょう。</div>
+    </div>
+
+    <h2>当選メールの確認</h2>
+    <p>
+      当選したかどうかは、AKB48チケットセンターから届くメールでわかります。件名は「【AKB48劇場】チケット当選のお知らせ」です。落選の場合も「【AKB48劇場】抽選結果のお知らせ」という別の件名で連絡が来ます。メールが見当たらないときは、ZAIKOのアカウントページにある抽選応募履歴からも結果を確認できます。まずは公演日と枠と枚数が、申し込んだ内容と合っているかを確かめてください。
+    </p>
+
+    <h3>結果が届くタイミング</h3>
+    <p>
+      抽選結果は、<span class="hl">応募締切日の翌日20時</span>に発表されます。締切日が枠ごとに違うため、発表の日も枠によって前後します。
+    </p>
+    <p>
+      公演日を基準にすると、締切と発表の関係はおおよそ次のとおりです。
+    </p>
+    <table class="resp-table">
+      <thead>
+        <tr>
+          <th>枠</th>
+          <th>応募締切</th>
+          <th>当選発表</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="枠">映像倉庫会員枠<br />柱の会 会員枠<br />100発98中権利</td>
+          <td data-label="応募締切">公演7日前 16:00</td>
+          <td data-label="当選発表">公演6日前 20:00</td>
+        </tr>
+        <tr>
+          <td data-label="枠">一般枠<br />ファミリー・カップル枠<br />女性小中学生枠</td>
+          <td data-label="応募締切">公演5日前 16:00</td>
+          <td data-label="当選発表">公演4日前 20:00</td>
+        </tr>
+        <tr>
+          <td data-label="枠">お見送り会参加権付き<br />ロビー観覧チケット</td>
+          <td data-label="応募締切">公演3日前 16:00</td>
+          <td data-label="当選発表">公演2日前 20:00</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      会員枠のほうが先に結果が出るので、落選しても一般枠にまだ応募できるという流れになります。ただし公演によって日程が変わることもあるため、応募した公演ページで締切日を確認しておくと確実です。
+    </p>
+
+    <h3>当選メールの見方</h3>
+    <p>当選メールに書かれているのは、次の内容です。</p>
+    <ul>
+      <li>公演日と開演時間</li>
+      <li>当選した枠と枚数</li>
+      <li>公演ページへのリンク</li>
+      <li>支払いに関する案内</li>
+    </ul>
+    <p>
+      このメールは、<span class="hl">支払いから入場までの入り口になる大切な連絡</span>です。読んだあとに削除せず、当日まで残しておきましょう。公演ページへのリンクも、ここから開くのがいちばん早い方法になります。
+    </p>
+
+    <h3>落選のときの次の一手</h3>
+    <p>
+      落選しても、次の公演にすぐ応募できます。枠は複数あるので、一般枠だけでなく応募できる枠には並行して出しておくと当選の機会が増えます。
+    </p>
+    <div class="cap-box">
+      <div class="cap-title">落選が続くときのヒント</div>
+      <div class="cap-body">
+        <ul>
+          <li>平日の公演も候補に入れる</li>
+          <li>応募できる枠をすべて使う</li>
+          <li>人気の公演は倍率が上がりやすいと知っておく</li>
+        </ul>
+      </div>
+    </div>
+    <p>
+      公演には演目ごとの人気があり、たとえば「夢のポップスター」公演や「ここからだ」公演は応募が集まりやすい演目です。どうしても行きたい演目があるなら、同じ演目の別日程にも目を向けると機会が広がります。
+    </p>
+    <p>
+      なお、ファンのあいだでは「初めての応募は当たりやすい」とも言われています。公式に発表されている内容ではないため確かなことは言えませんが、最初の1回はとりあえず応募してみる価値があると思います。
+    </p>
+
+    <h2>支払いと電子チケット</h2>
+    <p>
+      支払いは、応募のときに選んだ方法にしたがって事前に進みます。ここで気をつけたいのが、劇場のリニューアル前を知っている方です。以前は当日に劇場で引き換え番号を伝えて支払う流れがありましたが、いまはその場で買う形ではなくなりました。当日に現金を持っていっても、チケットは受け取れません。決済から電子チケットが届くまでを、順番に見ていきます。
+    </p>
+
+    <h3>24時間以内の自動決済</h3>
+    <p>
+      応募時にクレジットカードを指定していた場合、<span class="hl">当選発表日時から24時間以内に自動で決済されます</span>。自分で操作する必要はありません。カードの有効期限が切れていないか、利用可能額が足りているかだけ、当選発表の前に確認しておくと安心です。
+    </p>
+    <p>
+      応募のときには「当選後に他の方法で払う」という選択肢もあります。この場合に使える支払い方法は、当選後の購入ページに表示されます。私自身はクレジットカード以外の方法を使ったことがないため、ここで具体的に書くことはできません。購入ページの案内にしたがって手続きしてください。
+    </p>
+
+    <h3>電子チケットの受け取り</h3>
+    <p>
+      決済が完了すると、電子チケットのリンクが記載されたメールが届きます。会場や日程などの詳細も、この電子チケットの中で確認する形です。紙のチケットは発行されないため、当日はスマホがそのままチケットになります。
+    </p>
+    <div class="cap-box">
+      <div class="cap-title">入場までにやっておくこと</div>
+      <div class="cap-body">
+        <ul>
+          <li>チケットのリンクを開いて表示できるか試す</li>
+          <li>スマホを充電しておく</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>
+      気をつけたいのは充電です。<span class="hl">スマホの電源が切れると、入場のときにチケットを表示できません</span>。長く待つ日もあるので、家を出る前に充電しておくと安心でしょう。
+    </p>
+
+    {a8Href && (
+      <>
+        <p>
+          電池が減るのは、劇場までの移動中です。遠征なら、家を出てから入場までに何時間もかかります。早めに着いて待つ時間に、荷物を預ける前まで充電しておけると安心です。ケーブル一体型なら、移動中も取り出してすぐ使えます。
+        </p>
+        <div class="cta">
+          <p class="cta-micro">＼ ケーブル不要の端子一体型 ／</p>
+          <a class="cta-btn" href={a8Href} target="_blank" rel="nofollow sponsored noopener">
+            楽天市場でAnker Nano Power Bankを見る
+          </a>
+        </div>
+        <Fragment set:html={a8Pixel} />
+      </>
+    )}
+
+    <h3>決済に失敗したとき</h3>
+    <p>
+      自動決済に失敗した場合は、案内のメールが届きます。そこに書かれた入金期限までに自分で支払いの手続きをすれば問題ないと、当選メールにも明記されています。
+    </p>
+    <p>
+      放置すると、せっかくの当選が無効になります。当選発表の日は、メールを1日に何度か見ておきましょう。
+    </p>
+
+    <h2>当日の持ち物</h2>
+    <p>
+      当日の持ち物で、いちばん気をつけたいのが本人確認書類です。入場時に確認が行われ、不備があるとその場で断られます。しかもチケット代は返ってきません。しかも2026年6月からは、認められる書類が顔写真付きの1点だけに絞られました。家を出る前に、ここだけは指差し確認するくらいの気持ちで準備してください。
+    </p>
+
+    <h3>顔写真付き本人確認書類</h3>
+    <p>次のいずれか1点があれば、それだけで確認が通ります。</p>
+    <ul>
+      <li>マイナンバーカード</li>
+      <li>運転免許証</li>
+      <li>パスポート</li>
+      <li>学生証（顔写真付きのもの）</li>
+      <li>身体障害者手帳・精神障害者保健福祉手帳・療育手帳（顔写真付きのもの）</li>
+      <li>在留カード</li>
+    </ul>
+
+    <h3>顔写真なしの書類の扱い</h3>
+    <p>
+      <span class="hl">2026年6月1日以降の公演から、顔写真付きの書類1点が必須になりました</span>。以前のように顔写真のない公的な証明書を2点そろえる方法では、入場できません。変更の詳細は<a href="https://ameblo.jp/akihabara48/entry-12964456021.html" target="_blank" rel="noopener noreferrer">AKB48公式ブログのお知らせ</a>で確認できます。
+    </p>
+    <p>
+      書類は原本で、有効期限内のものが必要です。手元に顔写真付きのものが1点もない場合は、応募する前に用意しておきましょう。マイナンバーカードは申請してから受け取るまでに日数がかかるため、行きたい公演が決まってから動き出すと間に合わないこともあります。
+    </p>
+    <div class="cap-box warn">
+      <div class="cap-title">使えないもの</div>
+      <div class="cap-body">
+        <ul>
+          <li>コピーしたもの</li>
+          <li>手書きのもの</li>
+          <li>期限が切れているもの</li>
+          <li>マイナンバー通知カード</li>
+          <li>公共料金の請求書や郵便物</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>ロッカー用の現金</h3>
+    <p>
+      劇場内には、カバンやリュックのほか、録音や録画のできる機器を持ち込めません。これらはロビーのコインロッカーに預けます。料金は300円で、支払いは現金のみです。
+    </p>
+    <p>
+      では何なら持って入れるのか。応援グッズについては、公式のQ&amp;Aに具体的なルールが示されています。
+    </p>
+    <div class="cap-box">
+      <div class="cap-title">グッズの持ち込みルール</div>
+      <div class="cap-body">
+        <ul>
+          <li>ペンライトは持ち込める</li>
+          <li>公式以外のペンライトは長さ20センチ以下で著しく明るくないもの</li>
+          <li>液体が光るケミカルライトは持ち込み不可</li>
+          <li>メンバーにリアクションを求める内容が書かれたうちわは公式グッズでも不可</li>
+          <li>飲み物はフタつきのものだけ持ち込める</li>
+          <li>フタのない飲み物と食事は不可</li>
+        </ul>
+      </div>
+    </div>
+    <p>
+      ペンライトは劇場内でも販売されており、そこで買えるのは公式のものです。一方、条件を満たすなら市販のペンライトでもかまいません。複数の色を出せるものを1本持っておくと、AKB48劇場以外の現場でも使い回せます。
+    </p>
+
+    <figure class="photo">
+      <img src="/images/locker-300yen.webp" alt="AKB48劇場ロビーのコインロッカー。料金300円の表示とコイン投入口" width="900" height="1200" loading="lazy" />
+      <figcaption>ロビーのコインロッカー。料金は300円で、コインを入れて施錠します</figcaption>
+    </figure>
+
+    <p>
+      小銭がなくてもスタッフに声をかければ両替してもらえます。現金をまったく持っていない場合はクロークでPayPayが使えますが、こちらは600円です。<span class="hl">300円を用意していくだけで、倍の出費を避けられます</span>。
+    </p>
+
+    <h2>AKB48劇場へのアクセス</h2>
+    <p>
+      AKB48劇場は東京の秋葉原にあります。ドン・キホーテの8階という、知らないと少し驚く場所です。初めて行く方は、建物にたどり着いてから8階に上がるまでで戸惑いやすいので、時間に余裕を持って向かうことをおすすめします。到着してからやることも多いため、早めに着いて損はありません。
+    </p>
+
+    <h3>最寄り駅からの行き方</h3>
+    <p>
+      最寄りはJR秋葉原駅です。電気街口から歩いて5分ほどの場所にあります。目印はドン・キホーテの看板で、建物に入ったらエレベーターで8階へ上がります。
+    </p>
+    <p>
+      土地勘がない方は、地図アプリの目的地に「ドン・キホーテ秋葉原店」と入れて向かうのがいちばん確実です。劇場名で調べるより、建物を目指したほうが迷いません。
+    </p>
+
+    <h3>ロビーが開く時間</h3>
+    <p>
+      ロビーのオープンは、開演時間の2時間前です。
+    </p>
+    <p>
+      ロビーには座って休める椅子は用意されていませんが、展示物や衣装が飾られていて、見ているだけでも時間を忘れます。荷物を預けたあと、開演までここで過ごす形になります。
+    </p>
+
+    <h3>到着しておきたい時間</h3>
+    <p>
+      結論から言えば、開演の1時間前に着いておけば十分に間に合います。実際に私が通っているときも、だいたい1時間前を目安にしています。
+    </p>
+    <p>
+      理由は、入場順を決める抽選入場会が開演の30分前から始まるからです。ここに間に合わないと入場の順番に関われません。荷物を預ける時間も考えると、30分前ぎりぎりの到着では慌ただしくなります。
+    </p>
+    <div class="cap-box">
+      <div class="cap-title">当日のタイムライン</div>
+      <div class="cap-body">
+        <ul>
+          <li>2時間前 ロビーがオープン</li>
+          <li>1時間前 到着の目安</li>
+          <li>30分前 抽選入場会がスタート</li>
+          <li>開演 公演スタート</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>入場までの流れ</h2>
+    <p>
+      劇場に着いてから席に座るまでは、荷物を預ける、抽選入場会に参加する、本人確認を受けて入場する、という3つの段階に分かれます。流れさえ頭に入れておけば、初めてでも周りについていけます。ひとつずつ見ていきましょう。
+    </p>
+
+    <h3>荷物を預ける手順</h3>
+    <p>
+      7階から8階へ上がるエスカレーターの前で、スタッフによる電子チケットの確認があります。ここでスマホをすぐ出せるようにしておくと、流れが止まりません。
+    </p>
+    <p>
+      ロビーに着いたら、荷物があるならコインロッカーへ入れます。混み合う時間帯もあるので、早めに済ませておくと後が楽になります。300円の現金は、あらかじめ取り出しやすい場所に入れておきましょう。
+    </p>
+
+    <h3>抽選入場会のしくみ</h3>
+    <p>
+      入場する順番は、開演30分前から行われる抽選入場会で決まります。整列が始まるのは抽選の10分前ごろです。<span class="hl">抽選が始まってからでも、自分の整理番号が含まれる列が呼ばれるまでに並べば、ギリギリですが間に合います</span>。
+    </p>
+    <p>
+      列は整理番号順です。1〜10番、11〜20番というように10人刻みで並び、番号の若い順に劇場の扉前にある広いスペース、廊下、トイレの前へと列が伸びていきます。
+    </p>
+    <p>
+      同じ組の中の細かい順番は、並んでいる人同士で決めます。「すみません、何番ですか」「◯◯番です」と声をかけ合って、番号順に並び直す流れです。慣れていないと戸惑いますが、周りも同じことをしているので、聞かれたら番号を答えれば大丈夫です。
+    </p>
+    <p>
+      整列の直前まで、この広いスペースではメンバーとのツーショット権利などを賭けたゲームが行われています。撤収されてから整列が始まります。
+    </p>
+    <p>
+      ただし、ファミリー・カップル枠と女性小中学生枠は、この抽選の対象外です。これらの枠は抽選入場会よりも前に入場し、列は8階から7階へ下るエスカレーターの手前にできます。自分がどの枠で当選したかを、電子チケットで確認しておいてください。
+    </p>
+    <div class="cap-box">
+      <div class="cap-title">筆者がこれまで劇場公演に入ってみてどうだったか</div>
+      <div class="cap-body">
+        <ul>
+          <li>いちばん良かったときは2巡目で最前列を確保</li>
+          <li>体感では8割ほどの回で座れた</li>
+          <li>残り2割は立見だった</li>
+        </ul>
+      </div>
+    </div>
+    <p>
+      なお、健康上の理由で長時間立つのが難しい方や、お子さま連れの方は、席を確保してもらえます。中央のブロックにはなりませんが、抽選入場会が始まるまでにロビーのスタッフへ声をかければ対応してもらえます。
+    </p>
+
+    <h3>本人確認と入場</h3>
+    <p>
+      まずスマホで電子チケットを見せ、スタッフにチェックインしてもらいます。ここで確認が取れないと入場できません。
+    </p>
+    <p>
+      そのあとが手荷物検査です。スマホも持ち込むものも本人確認書類も、すべてカゴに入れて机に置き、金属探知機のチェックを受けます。
+    </p>
+    <p>
+      座席は入場した順に選びます。ここで知っておいてほしいのが、<span class="hl">劇場内には柱が2本あり、ステージ中央が見えにくい席がある</span>ということです。初めて行く人には、1列目が取れるなら1列目を、1列目が取れないならセンターブロックをおすすめします。どの席にもそれぞれの良さがあるので、通ううちに自分の好みは見えてきます。ただ、最初の1回だけは、ステージ中央が見える席で観てほしいと思っています。ここは筆者の感想で、公式が推奨しているわけではありません。
+    </p>
+
+    <h2>よくある質問</h2>
+    <p>
+      ここからは、初めて行く方からよく出る疑問をまとめます。メールや公式の案内に書かれていることと、実際に通ってみて分かったことを分けて書きました。書かれていないことは推測せず、確認先を示しています。気になる項目だけ拾い読みしてください。
+    </p>
+
+    <h3>一人参加の可否</h3>
+    <p>
+      一人でまったく問題ありません。整列も入場も自分のペースで進められますし、実際に一人で来ている方は多くいます。筆者も毎回一人で参加しています。連番で申し込んだ場合は、代表の方が同行者の電子チケットもまとめて提示する形になります。
+    </p>
+
+    <h3>服装のルール</h3>
+    <p>
+      服装についての決まりは、案内メールにも公式にも見当たりません。普段どおりの服装で大丈夫です。ただし立見になる可能性があるので、長時間立っていても疲れにくい靴を選んでおくと体が楽になります。
+    </p>
+
+    <h3>立見になる条件</h3>
+    <p>
+      抽選入場会で呼ばれる順番が遅いと、先に入った人から座席が埋まっていくため、立見になることがあります。座れるかどうかは抽選の結果次第です。立つ可能性も見込んでおきましょう。
+    </p>
+
+    <h3>キャンセルの可否</h3>
+    <p>
+      当選後のキャンセルと変更はできません。応募の段階で、その日に必ず行けるかどうかを考えておく必要があります。予定が不確かな日は、無理に応募しないほうが安全です。
+    </p>
+
+    <h3>ペンライトの持ち込み</h3>
+    <p>
+      ペンライトは持ち込めます。公式以外のものを使う場合は、長さ20センチ以下で著しく明るくないものという条件があります。液体が光るケミカルライトは持ち込めません。判断に迷ったら、ロビーにいるスタッフに聞くのが良いと思います。
+    </p>
+
+    <h2>まとめ</h2>
+    <p>
+      ここまで長くなりましたが、当日までに準備することは多くありません。支払いは自動で進みますし、当日の動き方も決まっています。忘れずに用意したいのは、顔写真付きの本人確認書類、電子チケットを表示するスマホ、ロッカー用の300円、そして到着する時間の4つです。
+    </p>
+
+    <div class="cap-box">
+      <div class="cap-title">当日までの振り返り</div>
+      <div class="cap-body">
+        <ul>
+          <li>当選メールが届いたら公演日と枠を確認する</li>
+          <li>支払いは24時間以内に自動で行われる</li>
+          <li>電子チケットは事前に開いて確認しておく</li>
+          <li>顔写真付きの本人確認書類を持つ</li>
+          <li>充電したスマホを持つ</li>
+          <li>ロッカー用に300円の現金を用意する</li>
+          <li>開演1時間前を目安に到着する</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>
+      ここまで読んだあなたは、もう当日の流れを一通り知っている状態です。あとは劇場に向かうだけになりました。
+    </p>
+    <p>
+      まだチケットを取ったことがない方は、<a href="/articles/how-to-get-tickets/">AKB48劇場のチケットの取り方</a>から読んでみてください。申し込みの手順を、この記事と同じように最初から説明しています。あなたの最初の1公演が、いい日になりますように。
+    </p>
+
+    <div class="cap-box note">
+      <div class="cap-title">お出かけ前に公式サイトの確認を</div>
+      <div class="cap-body">
+        <p class="note-text">
+          この記事は2026年9月時点のルールをもとに書いています。実際に2026年6月には本人確認書類の取り扱いが変わりました。ルールは今後も変わる可能性があるため、当日の準備をする前に、公式サイトで最新の案内を確認してください。
+        </p>
+        <ul>
+          <li><a href="https://www.akb48.co.jp/theater/tickets" target="_blank" rel="noopener noreferrer">AKB48劇場 観覧までの流れ</a></li>
+          <li><a href="https://www.akb48.co.jp/theater/faq" target="_blank" rel="noopener noreferrer">AKB48劇場 劇場関連Q&amp;A</a></li>
+          <li><a href="https://www.akb48.co.jp/theater/" target="_blank" rel="noopener noreferrer">AKB48劇場 公式ページ</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <style>
+    .prose h1 {
+      font-size: 1.6rem;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+    .post-date {
+      color: #999;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .prose h2 {
+      font-size: 1.25rem;
+      border-left: 5px solid var(--color-primary);
+      background: #fff0f5;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0 6px 6px 0;
+      margin: 2.5rem 0 1rem;
+      line-height: 1.4;
+    }
+    .prose h3 {
+      font-size: 1.05rem;
+      color: var(--color-primary);
+      border-bottom: 2px dotted #f0c6d8;
+      padding-bottom: 0.3rem;
+      margin: 1.75rem 0 0.75rem;
+    }
+    .prose p {
+      margin: 0 0 1rem;
+    }
+    .prose ul, .prose ol {
+      margin: 0 0 1.25rem;
+      padding-left: 1.4rem;
+    }
+    .prose li {
+      margin-bottom: 0.35rem;
+    }
+    .hl {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    .resp-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid #f0c6d8;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+    .resp-table th {
+      background: var(--color-primary);
+      color: #fff;
+      text-align: left;
+      font-size: 0.88rem;
+      padding: 0.55rem 0.8rem;
+      white-space: nowrap;
+    }
+    .resp-table td {
+      padding: 0.7rem 0.8rem;
+      border-top: 1px solid #f5e2ea;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      .resp-table, .resp-table tbody, .resp-table tr, .resp-table td {
+        display: block;
+        width: 100%;
+      }
+      .resp-table thead {
+        display: none;
+      }
+      .resp-table tr {
+        border-top: 1px solid #f0c6d8;
+        padding: 0.6rem 0;
+      }
+      .resp-table tr:first-child {
+        border-top: none;
+      }
+      .resp-table td {
+        border-top: none;
+        display: flex;
+        gap: 0.6rem;
+        padding: 0.2rem 0.8rem;
+      }
+      .resp-table td::before {
+        content: attr(data-label);
+        flex: 0 0 5.5em;
+        color: var(--color-primary);
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+    }
+    .cap-box {
+      border: 1px solid #f0c6d8;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      margin: 1.5rem 0;
+    }
+    .cap-box .cap-title {
+      background: var(--color-primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+    }
+    .cap-box .cap-body {
+      padding: 1rem 1.1rem 0.75rem;
+    }
+    .cap-box .cap-body ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    .photo {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .photo img {
+      max-width: 100%;
+      max-height: 460px;
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid #f0c6d8;
+    }
+    .photo figcaption {
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+    .cap-box.note {
+      border-color: #d9d9e3;
+    }
+    .cap-box.note .cap-title {
+      background: #55586b;
+    }
+    .cap-box .note-text {
+      margin: 0 0 0.75rem;
+      font-size: 0.92rem;
+    }
+    .cap-box.warn {
+      border-color: #e5c7c7;
+    }
+    .cap-box.warn .cap-title {
+      background: #8a3b3b;
+    }
+    .balloon-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin: 0.75rem 0;
+    }
+    .balloon-icon {
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fce4ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+    }
+    .balloon-icon.alt {
+      background: #f3e8ff;
+    }
+    .balloon {
+      position: relative;
+      background: #fff;
+      border: 1px solid #f0c6d8;
+      border-radius: 12px;
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+    }
+    .balloon.alt {
+      border-color: #ddd0ef;
+      background: #faf7ff;
+    }
+    .balloon::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 14px;
+      width: 12px;
+      height: 12px;
+      background: inherit;
+      border-left: 1px solid #f0c6d8;
+      border-bottom: 1px solid #f0c6d8;
+      transform: rotate(45deg);
+    }
+    .balloon.alt::before {
+      border-color: #ddd0ef;
+    }
+    /* 広告CTA */
+    .cta {
+      margin: 1.5rem 0 2rem;
+    }
+    .cta .cta-micro {
+      margin: 0 0 3px;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #12794a;
+      line-height: 1.4;
+    }
+    .cta-btn {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #24b46a 0%, #149053 100%);
+      box-shadow: 0 4px 0 #0e7643, 0 6px 14px rgba(0, 0, 0, 0.14);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.45;
+      text-align: center;
+      text-decoration: none;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(180deg, #29c274 0%, #169c5a 100%);
+      text-decoration: none;
+      color: #fff;
+    }
+    .cta-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #0e7643, 0 3px 8px rgba(0, 0, 0, 0.14);
+    }
+    .cta-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-20deg);
+      animation: cta-shine 3.4s ease-in-out infinite;
+    }
+    @keyframes cta-shine {
+      0%, 65% { left: -60%; }
+      100% { left: 130%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cta-btn::after { animation: none; display: none; }
+    }
+  </style>
+</BaseLayout>
