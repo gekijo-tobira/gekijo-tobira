@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'お問い合わせ';
+const description = '劇場への扉へのご連絡はこちらのフォームからお願いします。掲載内容に関するご相談などを受け付けています。';
+
+// ▼ Googleフォームの「埋め込みURL」を入れてください。
+//   作り方: Googleフォームを作成 → 右上「送信」→ < > タブ → iframe の src の値をコピー
+//   例: https://docs.google.com/forms/d/e/xxxxxxxx/viewform?embedded=true
+//   空のままだとフォームは表示されず、下の案内文だけが出ます。
+const formEmbedUrl = '';
+---
+
+<Layout title={title} description={description}>
+  <article class="page">
+    <h1>{title}</h1>
+
+    <p>
+      掲載内容に関するご相談などを受け付けています。下記のフォームよりご連絡ください。
+    </p>
+
+    <h2>お問い合わせの前に</h2>
+    <ul>
+      <li>チケットの当落や購入手続きについては、当サイトではお答えできません。<a href="https://www.akb48.co.jp/theater/" target="_blank" rel="noopener noreferrer">AKB48劇場の公式ページ</a>をご確認ください。</li>
+      <li>メンバーの方への取り次ぎやメッセージの転送は行っていません。</li>
+      <li>返信までに数日いただく場合があります。内容によっては返信できないこともあります。</li>
+    </ul>
+
+    {formEmbedUrl ? (
+      <div class="form-wrap">
+        <iframe
+          src={formEmbedUrl}
+          title="お問い合わせフォーム"
+          width="100%"
+          height="900"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy">読み込んでいます…</iframe>
+      </div>
+    ) : (
+      <div class="notice-box">
+        <p>
+          現在、お問い合わせフォームを準備しています。お急ぎの用件がある場合は、しばらく経ってから再度ご確認ください。
+        </p>
+      </div>
+    )}
+
+    <h2>いただいた情報の取り扱い</h2>
+    <p>
+      ご連絡いただいた内容と個人情報は、お問い合わせへの回答のためにのみ利用します。詳しくは<a href="/privacy/">プライバシーポリシー</a>をご覧ください。
+    </p>
+  </article>
+</Layout>
+
+<style>
+  .form-wrap {
+    margin: 1.5rem 0 2rem;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  .form-wrap iframe { display: block; border: 0; }
+  .notice-box {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff0f5;
+    border-radius: 10px;
+  }
+  .notice-box p { margin: 0; }
+</style>

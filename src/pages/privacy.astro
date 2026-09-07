@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'プライバシーポリシー';
+const description = '劇場への扉における個人情報の取り扱い、アクセス解析ツール、アフィリエイトプログラムの利用について説明しています。';
+
+// ▼ 公開日・改定日。内容を変更したら updated を更新してください
+const established = '2026-09-07';
+const updated = '2026-09-07';
+---
+
+<Layout title={title} description={description}>
+  <article class="page">
+    <h1>{title}</h1>
+    <p class="page-date">制定日: {established} / 最終改定日: {updated}</p>
+
+    <p>
+      劇場への扉（以下「当サイト」）は、閲覧者のプライバシーを尊重し、個人情報の保護に努めます。当サイトにおける個人情報の取り扱いについて、以下のとおり定めます。
+    </p>
+
+    <h2>個人情報の取得と利用目的</h2>
+    <p>
+      当サイトでは、お問い合わせをいただいた際に、お名前やメールアドレスなどの個人情報をご提供いただく場合があります。これらの情報は、お問い合わせへの回答や必要な連絡のためにのみ利用し、それ以外の目的では利用しません。
+    </p>
+    <p>
+      取得した個人情報は、法令に基づく場合を除き、ご本人の同意なく第三者へ提供することはありません。
+    </p>
+
+    <h2>アクセス解析ツールについて</h2>
+    <p>
+      当サイトでは、サイトの利用状況を把握するために Cloudflare Web Analytics を利用しています。このツールはCookieを使用せず、個人を特定する情報を収集しません。収集されるのは、閲覧されたページや参照元などの匿名の統計情報のみです。
+    </p>
+    <p>
+      Cloudflare Web Analytics の詳細については、<a href="https://www.cloudflare.com/ja-jp/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflareのプライバシーポリシー</a>をご確認ください。
+    </p>
+
+    <h2>広告配信について</h2>
+    <p>
+      当サイトでは、第三者配信の広告サービスを利用する場合があります。広告配信事業者は、閲覧者の興味に応じた広告を表示するためにCookieを使用することがあります。Cookieには氏名や住所などの個人を特定する情報は含まれません。
+    </p>
+    <p>
+      Cookieの使用は、ブラウザの設定から無効にすることができます。設定方法については、お使いのブラウザのヘルプをご覧ください。
+    </p>
+
+    <h2>アフィリエイトプログラムについて</h2>
+    <p>
+      当サイトは、A8.net、楽天アフィリエイト、Amazonアソシエイトなどのアフィリエイトプログラムに参加しています。これらのプログラムを通じて商品やサービスを紹介し、紹介料を受け取る場合があります。
+    </p>
+    <p>
+      広告を含む記事には、記事の冒頭にその旨を表示しています。紹介する商品やサービスは、当サイトの基準で選んでいます。紹介料の有無によって、紹介する内容や評価を変えることはありません。
+    </p>
+
+    <h2>免責事項</h2>
+    <p>
+      当サイトに掲載している情報は、掲載時点で確認できた内容にもとづいています。AKB48劇場のルールや手続きは変更されることがあるため、実際にご利用の際は必ず公式サイトで最新の情報をご確認ください。
+    </p>
+    <p>
+      当サイトの情報を利用したことで生じた損害について、当サイトは責任を負いかねます。また、リンク先の外部サイトの内容についても責任を負いかねますので、あらかじめご了承ください。
+    </p>
+
+    <h2>著作権について</h2>
+    <p>
+      当サイトに掲載している文章および写真の著作権は、当サイトに帰属します。無断での転載や複製はご遠慮ください。引用の範囲を超えて利用される場合は、お問い合わせページよりご連絡ください。
+    </p>
+    <p>
+      当サイトで紹介している団体名・商品名・サービス名は、各権利者に帰属します。権利者の方で掲載内容に問題がある場合は、お問い合わせページよりご連絡いただければ速やかに対応いたします。
+    </p>
+
+    <h2>本ポリシーの変更</h2>
+    <p>
+      当サイトは、必要に応じて本ポリシーの内容を変更することがあります。変更した場合は、このページに掲載した時点から効力を持つものとします。
+    </p>
+
+    <h2>お問い合わせ</h2>
+    <p>
+      本ポリシーに関するご質問は、<a href="/contact/">お問い合わせページ</a>よりご連絡ください。
+    </p>
+  </article>
+</Layout>
+
+<style is:global>
+  .page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+  }
+  .page h1 {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  .page-date {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-bottom: 2rem;
+  }
+  .page h2 {
+    font-size: 1.15rem;
+    margin: 2.25rem 0 0.75rem;
+    padding-left: 0.7rem;
+    border-left: 4px solid var(--color-primary);
+  }
+  .page h3 {
+    font-size: 1rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .page p { margin-bottom: 1rem; }
+  .page ul, .page ol { margin: 0 0 1rem 1.25rem; }
+  .page li { margin-bottom: 0.4rem; }
+  .page dl { margin-bottom: 1rem; }
+  .page dt { font-weight: 700; margin-top: 1rem; }
+  .page dd { margin-left: 0; color: var(--color-muted); }
+</style>

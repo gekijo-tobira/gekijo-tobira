@@ -3,10 +3,13 @@ import BaseLayout from '../../layouts/Layout.astro';
 
 const title = "AKB48劇場のチケットの取り方";
 const description = "AKB48劇場のチケット申込方法をわかりやすく解説。初めての方でも安心して応募できるよう、種類・手順・コツをまとめました。";
-const pubDate = new Date('2026-05-11');
+// 公開日・更新日（YYYY-MM-DD）。index.astro の一覧と揃えること
+const pubDateISO = '2026-05-11';
+const updatedISO = '2026-05-11';
+const pubDate = new Date(pubDateISO);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} pubDate={pubDateISO} updatedDate={updatedISO}>
   <article class="prose max-w-3xl mx-auto px-4 py-8">
     <h1>{title}</h1>
     <p class="text-gray-500 text-sm">{pubDate.toLocaleDateString('ja-JP')}</p>

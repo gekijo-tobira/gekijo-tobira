@@ -2,12 +2,57 @@
 export interface Props {
   title: string;
   description?: string;
+  /** 記事ページで指定する公開日（YYYY-MM-DD）。未指定ならJSON-LDは WebSite になる */
+  pubDate?: string;
+  /** 記事ページで指定する更新日（YYYY-MM-DD）。未指定なら pubDate を使う */
+  updatedDate?: string;
+  /** OGP画像のパス。未指定なら共通画像 */
+  ogImage?: string;
+  /** アフィリエイト広告を含むページで true にする */
+  hasAd?: boolean;
 }
 
 const {
   title,
   description = 'AKB48劇場公演の行き方・チケットの取り方・楽しみ方を初心者向けに解説するガイドブログ',
+  pubDate,
+  updatedDate,
+  ogImage = '/images/og-default.png',
+  hasAd = false,
 } = Astro.props;
+
+const SITE_NAME = '劇場への扉';
+// ▼ 運営者名。ハンドルネームに置き換えてください（about・contactページと揃える）
+const AUTHOR = '運営者';
+
+// 正規URL。本番は末尾スラッシュありが正規（例: /articles/xxx/）
+const normalizedPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonicalURL = new URL(normalizedPath, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+const isArticle = Astro.url.pathname.startsWith('/articles/');
+const pageTitle = Astro.url.pathname === '/' ? `${SITE_NAME} | AKB48劇場 はじめての1公演ガイド` : `${title} | ${SITE_NAME}`;
+
+// 構造化データ
+const jsonLd = isArticle && pubDate
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: title,
+      description,
+      image: ogImageURL.href,
+      datePublished: pubDate,
+      dateModified: updatedDate ?? pubDate,
+      author: { '@type': 'Person', name: AUTHOR },
+      publisher: { '@type': 'Organization', name: SITE_NAME },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalURL.href },
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      description,
+      url: new URL('/', Astro.site).href,
+    };
 ---
 
 <!DOCTYPE html>
@@ -16,11 +61,22 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={isArticle ? 'article' : 'website'} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} | 劇場への扉</title>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{pageTitle}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
     <style>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       :root {
@@ -59,6 +115,15 @@ const {
         padding: 0 1.25rem;
       }
 
+      /* PR表記 */
+      .pr-notice {
+        font-size: 0.75rem;
+        line-height: 1.4;
+        color: var(--color-muted);
+        text-align: left;
+        margin-bottom: 0.75rem;
+      }
+
       /* Footer */
       .site-footer {
         text-align: center;
@@ -68,6 +133,15 @@ const {
         border-top: 1px solid #eee;
         margin-top: 4rem;
       }
+      .footer-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1.25rem;
+        margin-bottom: 1rem;
+      }
+      .footer-nav a { color: var(--color-muted); }
+      .footer-note { margin-top: 0.5rem; font-size: 0.8rem; }
     </style>
   </head>
   <body>
@@ -76,12 +150,18 @@ const {
     </header>
 
     <main>
+      {(isArticle || hasAd) && <p class="pr-notice">本記事にはプロモーションを含みます</p>}
       <slot />
     </main>
 
     <footer class="site-footer">
-      <p>© 2025 劇場への扉 — AKB48劇場公演ガイド</p>
-      <p style="margin-top:0.5rem;font-size:0.8rem;">当サイトはアフィリエイト広告を利用しています</p>
+      <nav class="footer-nav" aria-label="フッターメニュー">
+        <a href="/about/">運営者情報</a>
+        <a href="/privacy/">プライバシーポリシー</a>
+        <a href="/contact/">お問い合わせ</a>
+      </nav>
+      <p>© {new Date().getFullYear()} 劇場への扉 — AKB48劇場公演ガイド</p>
+      <p class="footer-note">当サイトはアフィリエイト広告を利用しています</p>
     </footer>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4a471956a2824fa981d9f6affd79c497"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

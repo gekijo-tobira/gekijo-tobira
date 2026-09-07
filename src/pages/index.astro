@@ -1,11 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+// 記事一覧。date は各記事の pubDateISO と揃えること（新しい順に並べる）
 const articles = [
+  {
+    title: '【AKB48劇場】当選後の流れは？入場までの手順を全部解説',
+    slug: 'after-winning-tickets',
+    date: '2026-09-06',
+    excerpt: '当選メールが届いてから席に座るまでを順番に解説。支払いのタイミング、電子チケット、本人確認書類、ロッカー代、抽選入場会まで、初めてでも迷わない手順をまとめました。',
+    tag: '当選後',
+  },
   {
     title: 'AKB48劇場のチケットの取り方',
     slug: 'how-to-get-tickets',
-    date: '2025-05-10',
+    date: '2026-05-11',
     excerpt: 'AKB48劇場のチケット申込方法をわかりやすく解説。初めての方でも安心して応募できるよう、種類・手順・コツをまとめました。',
     tag: '入門',
   },
@@ -34,7 +42,7 @@ const articles = [
             {a.tag}
           </span>
           <h3 style="margin-top:0.6rem; font-size:1.05rem; line-height:1.5;">
-            <a href={`/articles/${a.slug}`}>{a.title}</a>
+            <a href={`/articles/${a.slug}/`}>{a.title}</a>
           </h3>
           <p style="margin-top:0.4rem; color:var(--color-muted); font-size:0.9rem;">{a.excerpt}</p>
           <time style="display:block; margin-top:0.5rem; font-size:0.8rem; color:#aaa;" datetime={a.date}>{a.date}</time>
@@ -47,7 +55,7 @@ const articles = [
   <section style="margin-top:3rem; background:#fff0f5; border-radius:12px; padding:2rem; text-align:center;">
     <h2 style="font-size:1.1rem; color:var(--color-primary); margin-bottom:0.75rem;">まずここから読んでみて</h2>
     <p style="color:var(--color-muted); margin-bottom:1.25rem;">チケットの取り方を知りたい初心者の方は、こちらの記事がおすすめです。</p>
-    <a href="/articles/how-to-get-tickets"
+    <a href="/articles/how-to-get-tickets/"
        style="display:inline-block; background:var(--color-primary); color:#fff; padding:0.75rem 2rem; border-radius:999px; font-weight:700; font-size:0.95rem;">
       チケットの取り方を読む →
     </a>
