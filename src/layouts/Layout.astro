@@ -93,8 +93,11 @@ const jsonLd = isArticle && pubDate
         color: var(--color-text);
         line-height: 1.75;
       }
-      a { color: var(--color-primary); text-decoration: none; }
-      a:hover { text-decoration: underline; }
+      /* Astro は <style> をファイル単位で分離するため、そのままでは
+         <slot /> で流し込まれる各ページ本文のリンクに届かない。
+         :global() でサイト全体に適用する。 */
+      :global(a) { color: var(--color-primary); text-decoration: none; }
+      :global(a:hover) { text-decoration: underline; }
 
       /* Header */
       .site-header {

@@ -5,7 +5,7 @@ const title = "AKB48劇場のチケットの取り方";
 const description = "AKB48劇場のチケット申込方法をわかりやすく解説。初めての方でも安心して応募できるよう、種類・手順・コツをまとめました。";
 // 公開日・更新日（YYYY-MM-DD）。index.astro の一覧と揃えること
 const pubDateISO = '2026-05-11';
-const updatedISO = '2026-09-07';
+const updatedISO = '2026-09-08';
 const pubDate = new Date(pubDateISO);
 const updated = new Date(updatedISO);
 ---
@@ -151,12 +151,18 @@ const updated = new Date(updatedISO);
       <div class="term-body">
         <dl>
           <dt>映像倉庫（えいぞうそうこ）</dt>
-          <dd>AKB48の公演映像などを見られる、有料の会員サービスです。<strong>月額1,078円（税込）</strong>。会員になると「映像倉庫会員枠」で申し込めるようになります。</dd>
+          <dd>
+            AKB48の公演映像などを見られる、有料の会員サービスです。<strong>月額1,078円（税込）</strong>。会員になると「映像倉庫会員枠」で申し込めるようになります。<br />
+            <a href="https://akb48group-eizo.jp/home/" target="_blank" rel="noopener noreferrer">映像倉庫 公式サイト</a>
+          </dd>
           <dt>柱の会（はしらのかい）</dt>
-          <dd>AKB48の公式ファンクラブです。<strong>月額330円（税込）</strong>。会員になると「柱の会 会員枠」で申し込めるようになります。</dd>
+          <dd>
+            AKB48の公式ファンクラブです。<strong>月額330円（税込）</strong>。会員になると「柱の会 会員枠」で申し込めるようになります。ライブやコンサートの先行予約など、劇場公演以外の特典もあります。<br />
+            <a href="https://www.akb48.co.jp/hashiranokai" target="_blank" rel="noopener noreferrer">柱の会 公式ページ</a>
+          </dd>
         </dl>
         <p class="term-note">
-          料金や申し込み方法は変わることがあるので、入会を考えるときは公式サイトで最新の情報を確認してください。<strong>初めての1公演は、どちらにも入らず一般枠だけで応募できます。</strong>
+          料金や申し込み方法は変わることがあるので、入会を考えるときは上記の公式サイトで最新の情報を確認してください。<strong>初めての1公演は、どちらにも入らず一般枠だけで応募できます。</strong>
         </p>
       </div>
     </div>
@@ -265,6 +271,11 @@ const updated = new Date(updatedISO);
     .term-box dd {
       margin: 0.25rem 0 0;
       line-height: 1.75;
+    }
+    .term-box dd a {
+      display: inline-block;
+      margin-top: 0.3rem;
+      font-size: 0.92rem;
     }
     .term-box .term-plain {
       margin: 0;
