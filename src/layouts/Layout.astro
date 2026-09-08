@@ -96,8 +96,15 @@ const jsonLd = isArticle && pubDate
       /* Astro は <style> をファイル単位で分離するため、そのままでは
          <slot /> で流し込まれる各ページ本文のリンクに届かない。
          :global() でサイト全体に適用する。 */
-      :global(a) { color: var(--color-primary); text-decoration: none; }
-      :global(a:hover) { text-decoration: underline; }
+      /* リンクは常に下線を引く。ピンクは用語解説の見出しや表のラベルなど
+         強調にも使っているため、色だけではリンクだと判別できないため。 */
+      :global(a) {
+        color: var(--color-primary);
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+        text-decoration-thickness: 1px;
+      }
+      :global(a:hover) { text-decoration-thickness: 2px; }
 
       /* Header */
       .site-header {
