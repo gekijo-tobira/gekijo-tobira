@@ -150,7 +150,10 @@ const jsonLd = isArticle && pubDate
     </header>
 
     <main>
-      {(isArticle || hasAd) && <p class="pr-notice">本記事にはプロモーションを含みます</p>}
+      {/* PR表記は全ページに必須（ASP・広告主の規約）。条件を付けて出し分けないこと。CLAUDE.md ⑧参照 */}
+      <p class="pr-notice">
+        {isArticle ? '本記事にはプロモーションを含みます' : '当サイトはアフィリエイト広告を利用しています'}
+      </p>
       <slot />
     </main>
 
