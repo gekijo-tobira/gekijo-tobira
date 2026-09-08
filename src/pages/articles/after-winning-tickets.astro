@@ -7,6 +7,7 @@ const description = "AKB48劇場に当選した後の流れを解説。支払い
 const pubDateISO = '2026-09-06';
 const updatedISO = '2026-09-06';
 const pubDate = new Date(pubDateISO);
+const updated = new Date(updatedISO);
 
 // A8.net 楽天アフィリエイト / Anker Nano Power Bank（5000mAh 端子一体型）
 // href と計測用imgはA8が発行した値をそのまま使用（改変すると成果が計測されない）。
@@ -18,7 +19,10 @@ const a8Pixel = `<img border="0" width="1" height="1" src="https://www17.a8.net/
 <BaseLayout title={title} description={description} pubDate={pubDateISO} updatedDate={updatedISO} hasAd={true}>
   <article class="prose">
     <h1>【AKB48劇場】当選後の流れは？入場までの手順を全部解説</h1>
-    <p class="post-date">{pubDate.toLocaleDateString('ja-JP')}</p>
+    <p class="post-date">
+      <span>公開日 {pubDate.toLocaleDateString('ja-JP')}</span>
+      {updatedISO !== pubDateISO && <span>最終更新 {updated.toLocaleDateString('ja-JP')}</span>}
+    </p>
 
     <p>
       AKB48劇場に行ってみたいと思いながら、応募のボタンを押す手が止まってしまう方は少なくありません。理由は倍率ではなく、「もし当たったとして、そのあと自分にちゃんと対応できるだろうか」という不安のほうだったりします。支払いはいつ発生するのか、チケットはどこに届くのか、当日は何を持っていけばいいのか。当選した先が想像できないと、行きたい公演があっても一歩を踏み出しにくいものです。
@@ -426,6 +430,9 @@ const a8Pixel = `<img border="0" width="1" height="1" src="https://www17.a8.net/
       margin-bottom: 0.5rem;
     }
     .post-date {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.15rem 0.9rem;
       color: #999;
       font-size: 0.85rem;
       margin-bottom: 1.5rem;

@@ -7,12 +7,16 @@ const description = "AKB48劇場のチケット申込方法をわかりやすく
 const pubDateISO = '2026-05-11';
 const updatedISO = '2026-09-07';
 const pubDate = new Date(pubDateISO);
+const updated = new Date(updatedISO);
 ---
 
 <BaseLayout title={title} description={description} pubDate={pubDateISO} updatedDate={updatedISO}>
-  <article class="prose max-w-3xl mx-auto px-4 py-8">
+  <article class="prose">
     <h1>{title}</h1>
-    <p class="text-gray-500 text-sm">{pubDate.toLocaleDateString('ja-JP')}</p>
+    <p class="post-date">
+      <span>公開日 {pubDate.toLocaleDateString('ja-JP')}</span>
+      {updatedISO !== pubDateISO && <span>最終更新 {updated.toLocaleDateString('ja-JP')}</span>}
+    </p>
 
     <p>
       今でこそ「行きたい！」と思った公演があればすぐにチケットを申し込めますが、AKB48劇場に初めて興味を持ったころは、わからないこと・不安なことだらけでした。「どこから申し込むの？」「どんな種類があるの？」「初心者でも行けるの？」——そんな疑問を抱えたまま、なかなか一歩を踏み出せずにいたのを今でも覚えています。
@@ -210,6 +214,25 @@ const pubDate = new Date(pubDateISO);
   </article>
 
   <style>
+    /* 記事2（after-winning-tickets）と揃えた本文まわりの体裁 */
+    .prose h1 { font-size: 1.6rem; line-height: 1.5; margin-bottom: 0.4rem; }
+    .prose h2 { font-size: 1.25rem; margin: 2rem 0 0.6rem; }
+    .prose h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    .prose p { line-height: 1.85; margin: 0.9rem 0; }
+    .prose ul, .prose ol { margin: 0.9rem 0; padding-left: 1.4rem; }
+    .prose li { line-height: 1.8; margin: 0.35rem 0; }
+
+    /* 日付。公開日と最終更新を横並びにする */
+    .post-date {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.15rem 0.9rem;
+      margin: 0 0 1.2rem;
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.6;
+    }
+
     /* 用語解説ボックス。記事2（after-winning-tickets）の .cap-box と揃えた見た目 */
     .term-box {
       border: 1px solid #f0c6d8;
