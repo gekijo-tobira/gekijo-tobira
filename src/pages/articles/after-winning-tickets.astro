@@ -45,7 +45,13 @@ const a8Pixel = `<img border="0" width="1" height="1" src="https://www17.a8.net/
       <div class="balloon">当たったのは嬉しいけど、この後どうすればいいのか全然わかりません…</div>
     </div>
     <div class="balloon-row">
-      <div class="balloon-icon alt">🎭</div>
+      <div class="balloon-icon alt">
+        <svg viewBox="0 0 32 32" width="40" height="40" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="16" fill="#c0396b" />
+          <path d="M7 26.5V14.5a9 9 0 0 1 18 0v12z" fill="#fff" />
+          <path d="M15 26.5V5.55h2V26.5z" fill="#c0396b" />
+        </svg>
+      </div>
       <div class="balloon alt">大丈夫です。やることは決まっているので、上から順番になぞっていきましょう。</div>
     </div>
 
@@ -580,8 +586,10 @@ const a8Pixel = `<img border="0" width="1" height="1" src="https://www17.a8.net/
       font-size: 1.15rem;
     }
     .balloon-icon.alt {
-      background: #f3e8ff;
+      /* ロゴSVG自体が円形なので、背景の円は重ねない */
+      background: transparent;
     }
+    .balloon-icon svg { display: block; }
     .balloon {
       position: relative;
       background: #fff;
