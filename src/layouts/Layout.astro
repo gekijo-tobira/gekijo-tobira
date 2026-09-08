@@ -105,8 +105,16 @@ const jsonLd = isArticle && pubDate
         align-items: center;
         gap: 0.5rem;
       }
-      .site-header a { color: var(--color-text); font-weight: 700; font-size: 1.1rem; }
+      .site-header a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        color: var(--color-text);
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
       .site-header a:hover { text-decoration: none; color: var(--color-primary); }
+      .site-logo { flex: 0 0 auto; display: block; }
 
       /* Main */
       main {
@@ -146,7 +154,14 @@ const jsonLd = isArticle && pubDate
   </head>
   <body>
     <header class="site-header">
-      <a href="/">🎭 劇場への扉</a>
+      <a href="/">
+        <svg class="site-logo" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="16" fill="#c0396b" />
+          <path d="M7 26.5V14.5a9 9 0 0 1 18 0v12z" fill="#fff" />
+          <path d="M15 26.5V5.55h2V26.5z" fill="#c0396b" />
+        </svg>
+        <span>劇場への扉</span>
+      </a>
     </header>
 
     <main>
