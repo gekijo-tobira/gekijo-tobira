@@ -14,7 +14,7 @@ export interface Props {
 
 const {
   title,
-  description = 'AKB48劇場公演の行き方・チケットの取り方・楽しみ方を初心者向けに解説するガイドブログ',
+  description = 'AKB48劇場公演・コンサートの行き方、チケットの取り方、当日の流れ、遠征の準備を初めての方向けに解説するガイドブログ',
   pubDate,
   updatedDate,
   ogImage = '/images/og-default.png',
@@ -30,7 +30,7 @@ const normalizedPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `
 const canonicalURL = new URL(normalizedPath, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 const isArticle = Astro.url.pathname.startsWith('/articles/');
-const pageTitle = Astro.url.pathname === '/' ? `${SITE_NAME} | AKB48劇場 はじめての1公演ガイド` : `${title} | ${SITE_NAME}`;
+const pageTitle = Astro.url.pathname === '/' ? `${SITE_NAME} | AKB48劇場・コンサートの行き方と遠征の準備` : `${title} | ${SITE_NAME}`;
 
 // 構造化データ
 const jsonLd = isArticle && pubDate
@@ -188,7 +188,7 @@ const jsonLd = isArticle && pubDate
         <a href="/privacy/">プライバシーポリシー</a>
         <a href="/contact/">お問い合わせ</a>
       </nav>
-      <p>© {new Date().getFullYear()} 劇場への扉 — AKB48劇場公演ガイド</p>
+      <p>© {new Date().getFullYear()} 劇場への扉 — AKB48劇場・コンサート・遠征ガイド</p>
       <p class="footer-note">当サイトはアフィリエイト広告を利用しています</p>
     </footer>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4a471956a2824fa981d9f6affd79c497"}'></script><!-- End Cloudflare Web Analytics -->
