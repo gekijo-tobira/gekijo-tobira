@@ -173,7 +173,7 @@ const a8Pixel = `<img border="0" width="1" height="1" src="https://www17.a8.net/
         <div class="cta">
           <p class="cta-micro">＼ ケーブル不要の端子一体型 ／</p>
           <a class="cta-btn" href={a8Href} target="_blank" rel="nofollow sponsored noopener">
-            楽天市場でAnker Nano Power Bankを見る
+            外出先でも充電できるモバイルバッテリーを見てみる
           </a>
         </div>
         <Fragment set:html={a8Pixel} />
@@ -650,6 +650,11 @@ const a8Pixel = `<img border="0" width="1" height="1" src="https://www17.a8.net/
       line-height: 1.45;
       text-align: center;
       text-decoration: none;
+      /* スマホで2行になったとき、日本語の文節で折り返す。
+         auto-phrase 非対応のブラウザでは strict が効き、
+         行頭に「ー」だけが残る割れ方を防ぐ */
+      line-break: strict;
+      word-break: auto-phrase;
     }
     .cta-btn:hover {
       background: #17754b;
