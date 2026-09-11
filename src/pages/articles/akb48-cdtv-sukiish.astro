@@ -1,13 +1,30 @@
 ---
 import BaseLayout from '../../layouts/Layout.astro';
+import Toc from '../../components/Toc.astro';
 
 const title = "AKB48がCDTVで『好きish』を披露｜映像は9月11日まで公開";
 const description = "9月7日のCDTVライブ！ライブ！でAKB48が『好きish』をおかわりライブしました。8月3日の歌唱映像が公式YouTubeで9月11日まで公開中です。テレビで気になった方に、劇場という選択肢も紹介します。";
 // 公開日・更新日（YYYY-MM-DD）。index.astro の一覧と揃えること
 const pubDateISO = '2026-09-08';
-const updatedISO = '2026-09-08';
+const updatedISO = '2026-09-11';
 const pubDate = new Date(pubDateISO);
 const updated = new Date(updatedISO);
+
+const toc = [
+  { id: 'sec-1', text: '今回は「おかわりライブ」での出演でした', children: [
+  ] },
+  { id: 'sec-2', text: '8月3日の歌唱映像が、9月11日まで公式YouTubeで見られます', children: [
+  ] },
+  { id: 'sec-3', text: '『好きish』はどんなシングルか', children: [
+  ] },
+  { id: 'sec-4', text: '9月26日・27日には、横浜でコンサートがあります', children: [
+    { id: 'sec-4-1', text: '残っているのは後ろの席です。ただ、初めてなら逆におすすめです' },
+  ] },
+  { id: 'sec-5', text: '気になったら、劇場という選択肢もあります', children: [
+  ] },
+  { id: 'sec-6', text: 'まとめ', children: [
+  ] },
+];
 ---
 
 <BaseLayout title={title} description={description} pubDate={pubDateISO} updatedDate={updatedISO}>
@@ -25,7 +42,9 @@ const updated = new Date(updatedISO);
       テレビで見て「この曲いいな」「この子たち誰だろう？」と思った方も少なからずいるはずです。そこから先、もっとAKBのことを知りたい！と思ったときの案内も載せています。
     </p>
 
-    <h2>今回は「おかわりライブ」での出演でした</h2>
+    <Toc items={toc} />
+
+    <h2 id="sec-1">今回は「おかわりライブ」での出演でした</h2>
     <p>
       AKB48が『好きish』をCDTVで披露したのは、今回が初めてではありません。1か月ほど前の8月3日（月）にも、同じ曲を歌っています。
     </p>
@@ -43,7 +62,7 @@ const updated = new Date(updatedISO);
       最新曲を同じ番組で、しかもフルサイズでもう一度披露する機会は、近頃のAKB48にはありませんでした。今回の出演、ファンとしてはとても嬉しいですね。
     </p>
 
-    <h2>8月3日の歌唱映像が、9月11日まで公式YouTubeで見られます</h2>
+    <h2 id="sec-2">8月3日の歌唱映像が、9月11日まで公式YouTubeで見られます</h2>
     <p>
       その8月3日の『好きish』フルサイズ歌唱映像が、AKB48の公式YouTubeチャンネルで期間限定公開されています。テレビを見逃した方も、もう一度見たい方も、ここで確認できます。
     </p>
@@ -60,7 +79,7 @@ const updated = new Date(updatedISO);
       </div>
     </div>
 
-    <h2>『好きish』はどんなシングルか</h2>
+    <h2 id="sec-3">『好きish』はどんなシングルか</h2>
     <p>
       68thシングル『好きish』は、2026年8月19日に発売されました。センターを務めているのは19期生の伊藤百花さんで、2作連続でのセンターです。
     </p>
@@ -116,7 +135,7 @@ const updated = new Date(updatedISO);
       <li>AKB48公式サイト：<a href="https://www.akb48.co.jp/" target="_blank" rel="noopener noreferrer">https://www.akb48.co.jp/</a></li>
     </ul>
 
-    <h2>9月26日・27日には、横浜でコンサートがあります</h2>
+    <h2 id="sec-4">9月26日・27日には、横浜でコンサートがあります</h2>
     <p>
       『好きish』の発売を記念したコンサート「AKB48 THREE CONCEPTS LIVE in K-Arena Yokohama」が、2026年9月26日（土）・27日（日）に<strong>Kアリーナ横浜</strong>（神奈川県横浜市西区みなとみらい）で行われます。2日間で3公演です。
     </p>
@@ -132,7 +151,7 @@ const updated = new Date(updatedISO);
       </div>
     </div>
 
-    <h3>残っているのは後ろの席です。ただ、初めてならそれで十分です</h3>
+    <h3 id="sec-4-1">残っているのは後ろの席です。ただ、初めてなら逆におすすめです</h3>
     <p>
       今回のコンサートはエリアによって価格が分かれており、売り切れのエリアもあります。26日の公演では、アリーナ席（22,000円）、ロールバック席（18,000円）、着席指定席（9,800円）などが完売しています。2026年9月8日の時点で「SOLD OUT」になっていないのは、次の3種類です。
     </p>
@@ -167,7 +186,7 @@ const updated = new Date(updatedISO);
       なお、こちらも電子チケットで、入場時に本人確認があります。1申込あたり4枚まで、2枚以上買った場合は入場までに同行者へチケットを分配する必要があります。このあたりの流れは劇場公演とよく似ているので、<a href="/articles/after-winning-tickets/">当選後の流れをまとめた記事</a>も参考になるはずです。
     </p>
 
-    <h2>気になったら、劇場という選択肢もあります</h2>
+    <h2 id="sec-5">気になったら、劇場という選択肢もあります</h2>
     <p>
       テレビやYouTubeで見たメンバーは、東京・秋葉原にあるAKB48劇場で、ほぼ毎日公演を行っています。収容人数は約250名です。テレビの画面で見ていた人を、その距離で見られる場所があります。
     </p>
@@ -195,7 +214,7 @@ const updated = new Date(updatedISO);
       <li><a href="/articles/after-winning-tickets/">【AKB48劇場】当選後の流れは？入場までの手順を全部解説</a> … 支払い、電子チケット、当日の持ち物と流れ</li>
     </ul>
 
-    <h2>まとめ</h2>
+    <h2 id="sec-6">まとめ</h2>
     <p>
       今回のパフォーマンスや前回のYouTubeを見て、AKB48を見に行ってみたい！と思ったら、9月26日のコンサートか、劇場公演のチケットの記事をのぞいてみてください。
     </p>

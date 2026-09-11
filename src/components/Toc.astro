@@ -1,0 +1,91 @@
+---
+/**
+ * 記事の目次。
+ * 各記事の frontmatter で toc 配列を定義し、本文の h2/h3 に同じ id を振って使う。
+ * id は scripts/add-toc.py で機械的に付けているので、手で書き換えないこと。
+ */
+export interface TocItem {
+  id: string;
+  text: string;
+  children?: { id: string; text: string }[];
+}
+export interface Props {
+  items: TocItem[];
+}
+const { items } = Astro.props;
+---
+
+{items.length > 0 && (
+  <nav class="toc" aria-labelledby="toc-title">
+    <p class="toc-title" id="toc-title">目次</p>
+    <ol class="toc-list">
+      {items.map((item) => (
+        <li>
+          <a href={`#${item.id}`}>{item.text}</a>
+          {item.children && item.children.length > 0 && (
+            <ul class="toc-sub">
+              {item.children.map((child) => (
+                <li><a href={`#${child.id}`}>{child.text}</a></li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<style>
+  .toc {
+    background: #fff;
+    border: 1px solid #f0c6d8;
+    border-radius: 10px;
+    padding: 1rem 1.25rem 1.1rem;
+    margin: 1.75rem 0 2rem;
+  }
+  .toc-title {
+    margin: 0 0 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  .toc-list {
+    margin: 0;
+    padding-left: 1.4rem;
+  }
+  .toc-list > li {
+    margin: 0.45rem 0;
+    line-height: 1.7;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .toc-sub {
+    margin: 0.3rem 0 0.55rem;
+    padding-left: 1.1rem;
+    list-style: disc;
+  }
+  .toc-sub li {
+    margin: 0.2rem 0;
+    line-height: 1.7;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+  /* 記事本文のリンクは常時下線（既存方針）だが、
+     目次は項目数が多く下線だらけになるため、ホバー時のみにする */
+  .toc a {
+    text-decoration: none;
+    color: var(--color-text, #333);
+  }
+  .toc a:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
+  }
+</style>
+
+<style is:global>
+  /* 目次から飛んだとき、見出しが画面の上端に貼りつかないように余白を取る */
+  .prose h2,
+  .prose h3 {
+    scroll-margin-top: 1.2rem;
+  }
+</style>
