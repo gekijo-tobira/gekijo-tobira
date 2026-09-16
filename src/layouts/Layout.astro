@@ -10,6 +10,8 @@ export interface Props {
   ogImage?: string;
   /** アフィリエイト広告を含むページで true にする */
   hasAd?: boolean;
+  /** 検索結果に出す必要のないページ（404など）で true にする */
+  noindex?: boolean;
 }
 
 const {
@@ -19,6 +21,7 @@ const {
   updatedDate,
   ogImage = '/images/og-default.png',
   hasAd = false,
+  noindex = false,
 } = Astro.props;
 
 const SITE_NAME = '劇場への扉';
@@ -61,7 +64,8 @@ const jsonLd = isArticle && pubDate
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {!noindex && <link rel="canonical" href={canonicalURL} />}
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

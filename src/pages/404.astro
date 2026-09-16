@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'ページが見つかりません';
+const description = 'お探しのページは見つかりませんでした。AKB48劇場・コンサートの行き方の記事は、トップページから探せます。';
+---
+
+<Layout title={title} description={description} noindex={true}>
+  <article class="page">
+    <h1>ページが見つかりません</h1>
+    <p>
+      お探しのページは、移動したか削除された可能性があります。アドレスの入力間違いもご確認ください。
+    </p>
+
+    <h2>ここから探せます</h2>
+    <ul>
+      <li><a href="/">トップページ（記事の一覧）</a></li>
+      <li><a href="/articles/how-to-get-tickets/">AKB48劇場のチケットの取り方</a></li>
+      <li><a href="/articles/after-winning-tickets/">当選後の流れは？入場までの手順を全部解説</a></li>
+    </ul>
+
+    <p>
+      見つからないときは<a href="/contact/">お問い合わせ</a>からご連絡ください。
+    </p>
+  </article>
+</Layout>
+
+<style>
+  .page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+  }
+  .page h1 {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+  .page h2 {
+    font-size: 1.15rem;
+    margin: 2.25rem 0 0.75rem;
+    padding-left: 0.7rem;
+    border-left: 4px solid var(--color-primary);
+  }
+  .page p { margin-bottom: 1rem; }
+  .page ul { margin: 0 0 1rem 1.25rem; }
+  .page li { margin-bottom: 0.4rem; }
+</style>
